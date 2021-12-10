@@ -1,0 +1,40 @@
+{
+  "short_name": "World Idle Detector",
+  "name": "World Idle Detector",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "permissions": [
+    "idle",
+    "storage",
+    "activeTab",
+    "tabs",
+    "declarativeContent",
+    "https://www.sonicgarden.world/*"
+  ],
+  "background": {
+    "scripts": ["Background.ts"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "World Idle Detector",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "./images/world-idle-16.png",
+      "32": "./images/world-idle-32.png",
+      "64": "./images/world-idle-64.png",
+      "128": "./images/world-idle-128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.sonicgarden.world/*"],
+      "js": ["./ContentScript.ts"]
+    }
+  ],
+  "icons": {
+    "16": "./images/world-idle-16.png",
+    "32": "./images/world-idle-32.png",
+    "64": "./images/world-idle-64.png",
+    "128": "./images/world-idle-128.png"
+  }
+}

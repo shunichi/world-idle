@@ -1,0 +1,31 @@
+{
+  "name": "world-idle",
+  "version": "1.0.0",
+  "description": "Idle detection for SonicGarden World",
+  "targets": {
+    "webext-dev": {
+      "sourceMap": {
+        "inline": true,
+        "inlineSources": true
+      }
+    },
+    "webext-prod": {
+      "sourceMap": {
+        "inline": true,
+        "inlineSources": true
+      }
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --noEmit && parcel build src/manifest.json --target webext-prod --config @parcel/config-webextension"
+  },
+  "author": "Shunichi Ikegami",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/config-webextension": "^2.0.1",
+    "@types/chrome": "^0.0.169",
+    "parcel": "^2.0.1",
+    "typescript": "^4.5.3"
+  }
+}
