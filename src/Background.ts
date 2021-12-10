@@ -35,6 +35,8 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   return true;
 });
 
+const MAX_RECORDS = 100;
+
 function AddRecord(idleState: chrome.idle.IdleState) {
   const time = new Date().toISOString();
   console.log(`${time}: ${idleState}`);
@@ -42,6 +44,8 @@ function AddRecord(idleState: chrome.idle.IdleState) {
     if (items) {
       const records: IdleRecord[] = items.records || [];
       records.push({ time, idleState });
+      if (records.length > MAX_RECORDS)
+        records.splice(0, records.length - MAX_RECORDS);
       chrome.storage.local.set({ records });
     }
   });
