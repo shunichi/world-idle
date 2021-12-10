@@ -27,7 +27,6 @@ console.log('Hello, World Idle Detector Background JS');
 // ];
 
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
-  console.dir(message);
   chrome.storage.local.get('records', (items) => {
     const records: IdleRecord[] = items.records || [];
     // const records = dummyRecords;
